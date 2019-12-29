@@ -1,19 +1,20 @@
 package main
 
 import (
+	"log"
+
 	"github.com/blondefoxy/study-go/pkg/facade"
 	"github.com/blondefoxy/study-go/pkg/health"
 	"github.com/blondefoxy/study-go/pkg/recommends"
-	"log"
 )
 
+const data = "1qaz"
+
 func main() {
-	healthData := health.NewHealther()
-	recommend := recommends.NewRecommender()
-
-	genom := facade.NewGenomService("1qaz", healthData, recommend)
-
-	err := genom.Calculate()
+	err := facade.NewGenomService(data,
+		health.NewHealther(),
+		recommends.NewRecommender(),
+	).Calculate()
 	if err != nil {
 		log.Printf("error occured: %v", err)
 	}
