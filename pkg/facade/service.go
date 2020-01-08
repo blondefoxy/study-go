@@ -2,17 +2,17 @@ package facade
 
 import "fmt"
 
-// GenomService ...
-type GenomService interface {
-	Calculate() error
-}
-
 type healthWorker interface {
 	Check() bool
 }
 
 type recommender interface {
 	Write() string
+}
+
+// GenomServicer ...
+type GenomServicer interface {
+	Calculate() error
 }
 
 type genomService struct {
@@ -28,8 +28,8 @@ func (g *genomService) Calculate() error {
 	return nil
 }
 
-// NewGenomService creates new genom service
-func NewGenomService(data string, health healthWorker, recommend recommender) GenomService {
+// NewGenomServicer creates new genom service
+func NewGenomServicer(data string, health healthWorker, recommend recommender) GenomServicer {
 	return &genomService{
 		geneData:   data,
 		health:     health,

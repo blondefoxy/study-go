@@ -14,7 +14,7 @@ const (
 
 func TestGenomService(t *testing.T) {
 	t.Run(serviceBehaviorSuccess, func(t *testing.T) {
-		genom := NewGenomService(inputData, newMockHealth(), newMockRecommender())
+		genom := NewGenomServicer(inputData, newMockHealth(), newMockRecommender())
 		require.NoError(t, genom.Calculate())
 	})
 }

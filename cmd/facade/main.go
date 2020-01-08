@@ -11,7 +11,7 @@ import (
 const data = "1qaz"
 
 func main() {
-	err := facade.NewGenomService(data,
+	err := facade.NewGenomServicer(data,
 		health.NewHealther(),
 		recommends.NewRecommender(),
 	).Calculate()
